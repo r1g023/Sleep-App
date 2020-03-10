@@ -2,6 +2,7 @@
     width: 100%; 
     background: rgb(12, 1, 1);
 header { 
+    display: flex;
     width: 100%; 
     margin: 0 auto;
     position: fixed;
@@ -12,9 +13,11 @@ header {
     background: black;
     box-shadow: 0px 8px 60px -5px purple;
     opacity: 0.8;
-    @media @tablet { // tablet media query header MEDIA
+    @media @tablet { // mobile media query header MEDIA
         margin: 0;
+        position: relative;
     }
+  
 }
 .navigation{ // Nav at 80%
     width: 80%;
@@ -27,9 +30,22 @@ header {
         width: 100%;
         flex-direction: column;
     }
+    @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+    }
+    @media only screen and (max-width: 1500px) and (min-width: 1001px)  { // DESKTOP VERSION 1000PX - 1500PX
+       width: 100%;
+    }
+
     .logo{
         width: 25rem;
         cursor: pointer;
+        @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+        width: 30%;
+        }
+    
     }
     li{
         display: inline-block;
@@ -37,8 +53,14 @@ header {
         @media @tablet { // tablet media query li elements MEDIA
             padding: 5px 15px;
             margin: 10px 0;
-           
         }
+        @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+            display: flex;
+            padding: 6px 0;
+            justify-content: space-between;
+        }
+    
+        
         a{
             transition: all 0.3s ease 0s; //this is for animation hover
             font-size: 1.5em;
@@ -98,11 +120,28 @@ a{
             width: 80%;
             height: auto;
         }
+        @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+            border-radius: 100%;
+            width: 85%;
+            height: 70%;
+            margin-top: 200px;
+        }
+        @media only screen and (max-width: 1500px) and (min-width: 1001px)  { // DESKTOP VERSION 1000PX - 1500PX
+            width: 60%;
+            height: 70%;
+            margin-top: 200px;
+        }
     
         .better-sleep {
             color: white;
             text-align: center;
             margin-top: 30%;
+            @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+                margin-top: 30%;
+            }
+            @media only screen and (max-width: 1500px) and (min-width: 1001px)  { // DESKTOP VERSION 1000PX - 1500PX
+                margin-top: 20%;
+            }
             h1 {
                 font-size: 4em;
                 margin: 20px;
@@ -123,15 +162,26 @@ a{
     width: 100%;
     display: flex;
     justify-content: center;
-   
+    @media @small {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    }
+    
     .android-app a > img {
         height: 50px;
         flex: 1;
         margin-right: 20px;
+        @media @small { // MEDIA QUERY FOR SMALLER SCREEN
+        margin: 0;
+        }
     }
     .apple-app a > img {
         height: 50px;
         flex: 1;
+        @media @small { // MEDIA QUERY FOR SMALLER SCREEN
+        margin-top: 20px;
+        }
     }
 }
 
@@ -147,6 +197,8 @@ a{
     .button {
         .custombutton(); // button mixin 
     }
+
+    
 }
 // ^^^ End of background image section ^^^
 
@@ -164,6 +216,10 @@ a{
     @media @tablet { // TABLET MID SECTION MEDIA QUERY
         flex-direction: column;
     }
+    @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+        display: flex;
+        flex-direction: space-around;
+    }
    .about-sleep { // Content info
         width: 50%;
         display: flex;
@@ -174,6 +230,10 @@ a{
         opacity: 0.6;
         @media @tablet { // TABLET MEDIA FOR CONTENT NEXT TO IMAGES
             width: 100%;
+        }
+        @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+            width: 50%;
+
         }
         h2 {
             color: black;
@@ -189,16 +249,19 @@ a{
            color: white;
            padding: 30px;
            text-align: justify;
-           @media @tablet { // TABLET MEDIA FONT SIZE
-            font-size: 1.9em;
-            }
-          
+           @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+            font-size: 1.5em;
+           }
        }
    }
    .about-image { // images next to content info
        width: 50%;
        @media @tablet { // TABLET MEDIA IMAGE SIZE 100%
         width: 100%;
+        }
+        @media only screen and (max-width: 1000px) and (min-width: 700px)  { // DESKTOP VERSION 700PX - 1000PX
+            width: 50%;
+            margin-top: 20%;
         }
        img {
            width: 100%;
@@ -228,6 +291,10 @@ a{
             top: 80px;
             width: 50%;
             text-align: center;
+        }
+        @media @small {
+            font-size: 2.5em;
+            margin: 0;
         }
     }
    }
